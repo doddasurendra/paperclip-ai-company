@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antigravity AI Corp | Autonomous AI Company</title>
+  <meta name="description" content="Autonomous AI Company orchestrated with Paperclip, powered by Antigravity CLI and Ollama local models.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Tailwind CSS & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+            },
+            accent: {
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+            },
+            dark: {
+              900: '#090d16',
+              850: '#0e1422',
+              800: '#151d30',
+              700: '#1e2942',
+              600: '#2c3a58',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #090d16;
+      color: #e2e8f0;
+      background-image: 
+        radial-gradient(at 15% 15%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
+        radial-gradient(at 85% 85%, rgba(34, 197, 94, 0.08) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+    .glass-panel {
+      background: rgba(14, 20, 34, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card {
+      background: rgba(21, 29, 48, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+    .pulse-glow {
+      box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+    }
+    .pulse-glow-blue {
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans flex flex-col">
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 glass-panel border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-accent-500 to-brand-400 flex items-center justify-center font-bold text-black text-xl shadow-lg shadow-accent-500/20">
+          📎
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="font-extrabold text-white text-lg tracking-tight">Antigravity AI Corp</span>
+            <span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center space-x-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping mr-1"></span>
+              Live Autonomous
+            </span>
+          </div>
+          <p class="text-xs text-slate-400">Powered by Paperclip • AGY CLI • Ollama</p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-300">
+        <a href="#agents" class="hover:text-accent-400 transition-colors">Org Chart</a>
+        <a href="#projects" class="hover:text-accent-400 transition-colors">Projects & Tasks</a>
+        <a href="#architecture" class="hover:text-accent-400 transition-colors">Free AI Engine</a>
+        <a href="#terminal" class="hover:text-accent-400 transition-colors">Heartbeat Console</a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <a href="https://github.com/doddasurendra/paperclip-ai-company" target="_blank" class="px-3.5 py-1.5 rounded-lg glass-card hover:bg-white/10 text-xs font-semibold text-slate-200 flex items-center space-x-2">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span>GitHub Repo</span>
+        </a>
+        <a href="http://localhost:3100" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-accent-500 to-brand-500 hover:from-accent-600 hover:to-brand-600 text-xs font-bold text-slate-950 flex items-center space-x-1.5 shadow-md shadow-accent-500/20">
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+          <span>Local Board</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-accent-400">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+          <span>Zero-Cost Infrastructure • 100% Free Tier & Local LLMs</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          An Entire AI Company <br class="hidden sm:block"/>
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-accent-400 via-teal-300 to-brand-400">
+            Running Autonomously
+          </span>
+        </h1>
+        <p class="text-base text-slate-300 leading-relaxed max-w-2xl">
+          Orchestrated with <strong class="text-white">Paperclip</strong>, driven by the <strong class="text-white">Antigravity CLI (<code class="text-xs bg-slate-800 px-1.5 py-0.5 rounded text-accent-400">agy</code>)</strong>, with a local <strong class="text-white">Ollama</strong> model backup section for free, private, offline-first execution.
+        </p>
+
+        <!-- Metrics Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+          <div class="glass-card p-4 rounded-xl">
+            <div class="text-2xl font-bold text-white font-mono">5</div>
+            <div class="text-xs text-slate-400 font-medium">Hired Agents</div>
+          </div>
+          <div class="glass-card p-4 rounded-xl">
+            <div class="text-2xl font-bold text-emerald-400 font-mono">$0.00</div>
+            <div class="text-xs text-slate-400 font-medium">Monthly API Spend</div>
+          </div>
+          <div class="glass-card p-4 rounded-xl">
+            <div class="text-2xl font-bold text-accent-400 font-mono">100%</div>
+            <div class="text-xs text-slate-400 font-medium">Self-Hosted Free</div>
+          </div>
+          <div class="glass-card p-4 rounded-xl">
+            <div class="text-2xl font-bold text-teal-400 font-mono">Dual</div>
+            <div class="text-xs text-slate-400 font-medium">Cloud & Local LLM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Heartbeat Status Box -->
+      <div class="lg:col-span-5">
+        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden shadow-2xl">
+          <div class="flex items-center justify-between pb-4 border-b border-white/10">
+            <div class="flex items-center space-x-2">
+              <div class="w-3 h-3 rounded-full bg-emerald-400 pulse-glow"></div>
+              <span class="text-xs font-mono font-semibold text-slate-200">COMPANY CONTROL PLANE</span>
+            </div>
+            <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">ANT-SYSTEM: OK</span>
+          </div>
+
+          <div class="mt-4 space-y-3.5 text-xs font-mono">
+            <div class="flex justify-between items-center bg-dark-850 p-2.5 rounded-lg border border-white/5">
+              <span class="text-slate-400 flex items-center space-x-2">
+                <i data-lucide="layers" class="w-4 h-4 text-accent-400"></i>
+                <span>Orchestrator:</span>
+              </span>
+              <span class="text-white font-semibold">Paperclip Control Plane</span>
+            </div>
+
+            <div class="flex justify-between items-center bg-dark-850 p-2.5 rounded-lg border border-white/5">
+              <span class="text-slate-400 flex items-center space-x-2">
+                <i data-lucide="cloud" class="w-4 h-4 text-sky-400"></i>
+                <span>Primary Cloud LLM:</span>
+              </span>
+              <span class="text-sky-300 font-semibold">Google Gemini CLI (`agy`)</span>
+            </div>
+
+            <div class="flex justify-between items-center bg-dark-850 p-2.5 rounded-lg border border-white/5">
+              <span class="text-slate-400 flex items-center space-x-2">
+                <i data-lucide="hard-drive" class="w-4 h-4 text-emerald-400"></i>
+                <span>Backup Local LLM:</span>
+              </span>
+              <span class="text-emerald-300 font-semibold">Ollama Local (v0.40+)</span>
+            </div>
+
+            <div class="flex justify-between items-center bg-dark-850 p-2.5 rounded-lg border border-white/5">
+              <span class="text-slate-400 flex items-center space-x-2">
+                <i data-lucide="database" class="w-4 h-4 text-amber-400"></i>
+                <span>Embedded Database:</span>
+              </span>
+              <span class="text-slate-200 font-semibold">PostgreSQL (port 54329)</span>
+            </div>
+          </div>
+
+          <div class="mt-5 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300 flex items-center space-x-2">
+            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+            <span>Atomic checkout & budget governor active. Spend threshold set to zero runaway prevention.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agent Team Org Chart Section -->
+  <section id="agents" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <div class="mb-10 text-center sm:text-left">
+      <div class="inline-flex items-center space-x-2 text-xs font-mono text-accent-400 uppercase tracking-widest mb-2">
+        <i data-lucide="users" class="w-3.5 h-3.5"></i>
+        <span>Autonomous Org Chart</span>
+      </div>
+      <h2 class="text-3xl font-bold text-white tracking-tight">The AI Employee Roster</h2>
+      <p class="text-slate-400 text-sm mt-1">Every agent has a role, job description, reporting line, and execution harness.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Agent 1: Astra (CEO) -->
+      <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between border-t-4 border-t-amber-400">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-2xl">
+              👑
+            </div>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-300 font-semibold border border-amber-500/20">CEO</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">Astra</h3>
+          <p class="text-xs text-slate-400 font-mono mt-0.5">Chief Executive Officer</p>
+          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+            Directs organizational goals, decomposes executive missions into project tickets, reviews team deliverables, and makes governance decisions.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/5 space-y-2 text-xs font-mono">
+          <div class="flex justify-between text-slate-400">
+            <span>Harness:</span>
+            <span class="text-slate-200">gemini_local (Antigravity)</span>
+          </div>
+          <div class="flex justify-between text-slate-400">
+            <span>Reports To:</span>
+            <span class="text-slate-200">Board Operator</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agent 2: Turing (CTO) -->
+      <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between border-t-4 border-t-accent-400">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-accent-500/10 border border-accent-500/20 flex items-center justify-center text-2xl">
+              🧠
+            </div>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-accent-500/10 text-accent-300 font-semibold border border-accent-500/20">CTO</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">Turing</h3>
+          <p class="text-xs text-slate-400 font-mono mt-0.5">Chief Technology Officer</p>
+          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+            Architects software systems, defines code quality benchmarks, approves technical PRs, and configures engineering toolchains.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/5 space-y-2 text-xs font-mono">
+          <div class="flex justify-between text-slate-400">
+            <span>Harness:</span>
+            <span class="text-slate-200">gemini_local (Antigravity)</span>
+          </div>
+          <div class="flex justify-between text-slate-400">
+            <span>Reports To:</span>
+            <span class="text-slate-200">Astra (CEO)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agent 3: Nexus (PM) -->
+      <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between border-t-4 border-t-purple-400">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-2xl">
+              📋
+            </div>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300 font-semibold border border-purple-500/20">PM</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">Nexus</h3>
+          <p class="text-xs text-slate-400 font-mono mt-0.5">Product Manager</p>
+          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+            Transforms user requirements into prioritized stories, structures acceptance tests, and manages sprint milestones.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/5 space-y-2 text-xs font-mono">
+          <div class="flex justify-between text-slate-400">
+            <span>Harness:</span>
+            <span class="text-slate-200">gemini_local (Antigravity)</span>
+          </div>
+          <div class="flex justify-between text-slate-400">
+            <span>Reports To:</span>
+            <span class="text-slate-200">Astra (CEO)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agent 4: Forge (Senior Engineer) -->
+      <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between border-t-4 border-t-emerald-400">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-2xl">
+              ⚡
+            </div>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-300 font-semibold border border-emerald-500/20">Engineer</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">Forge</h3>
+          <p class="text-xs text-slate-400 font-mono mt-0.5">Senior Full-Stack Engineer</p>
+          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+            Writes production code, implements automated test suites, resolves bugs, and maintains git workspaces.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/5 space-y-2 text-xs font-mono">
+          <div class="flex justify-between text-slate-400">
+            <span>Harness:</span>
+            <span class="text-slate-200">gemini_local (Antigravity)</span>
+          </div>
+          <div class="flex justify-between text-slate-400">
+            <span>Reports To:</span>
+            <span class="text-slate-200">Turing (CTO)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agent 5: Atlas-Ollama (Offline Local Specialist) -->
+      <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between border-t-4 border-t-teal-400 md:col-span-2 lg:col-span-1">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-2xl">
+              🦙
+            </div>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-teal-500/10 text-teal-300 font-semibold border border-teal-500/20">Ollama Specialist</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">Atlas-Ollama</h3>
+          <p class="text-xs text-slate-400 font-mono mt-0.5">Local Offline Model Engineer</p>
+          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+            Specialized for completely offline and private inference using Ollama local models (llama3.2 / qwen2.5) without network dependency.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/5 space-y-2 text-xs font-mono">
+          <div class="flex justify-between text-slate-400">
+            <span>Harness:</span>
+            <span class="text-teal-300">opencode_local (Ollama 11434)</span>
+          </div>
+          <div class="flex justify-between text-slate-400">
+            <span>Reports To:</span>
+            <span class="text-slate-200">Turing (CTO)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project & Issue Roadmap Section -->
+  <section id="projects" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <div class="glass-panel rounded-3xl p-8 sm:p-10">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+        <div>
+          <span class="text-xs font-mono text-accent-400 uppercase tracking-widest">Active Project</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Antigravity Core MVP</h2>
+          <p class="text-slate-400 text-sm mt-1">Goal: Launch Autonomous AI Solutions completely free</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-semibold">
+            Status: Active Sprint
+          </span>
+        </div>
+      </div>
+
+      <!-- Tickets List -->
+      <div class="space-y-3 font-mono text-xs">
+        <!-- Ticket 1 -->
+        <div class="p-4 rounded-xl bg-dark-850 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center space-x-3">
+            <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 font-bold">ANT-1</span>
+            <span class="text-slate-200 font-sans font-semibold text-sm">Bootstrap Antigravity AI Company Architecture</span>
+          </div>
+          <div class="flex items-center space-x-3 text-slate-400">
+            <span class="flex items-center space-x-1">
+              <i data-lucide="user" class="w-3.5 h-3.5 text-amber-400"></i>
+              <span class="text-slate-300">Astra (CEO)</span>
+            </span>
+            <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">In Progress</span>
+          </div>
+        </div>
+
+        <!-- Ticket 2 -->
+        <div class="p-4 rounded-xl bg-dark-850 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center space-x-3">
+            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">ANT-2</span>
+            <span class="text-slate-200 font-sans font-semibold text-sm">Integrate Antigravity CLI (agy) Free Inference Harness</span>
+          </div>
+          <div class="flex items-center space-x-3 text-slate-400">
+            <span class="flex items-center space-x-1">
+              <i data-lucide="user" class="w-3.5 h-3.5 text-accent-400"></i>
+              <span class="text-slate-300">Turing (CTO)</span>
+            </span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Completed</span>
+          </div>
+        </div>
+
+        <!-- Ticket 3 -->
+        <div class="p-4 rounded-xl bg-dark-850 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center space-x-3">
+            <span class="px-2 py-0.5 rounded bg-teal-500/20 text-teal-400 font-bold">ANT-3</span>
+            <span class="text-slate-200 font-sans font-semibold text-sm">Provision Local Ollama Model Fallback Pipeline</span>
+          </div>
+          <div class="flex items-center space-x-3 text-slate-400">
+            <span class="flex items-center space-x-1">
+              <i data-lucide="user" class="w-3.5 h-3.5 text-teal-400"></i>
+              <span class="text-slate-300">Atlas-Ollama</span>
+            </span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Completed</span>
+          </div>
+        </div>
+
+        <!-- Ticket 4 -->
+        <div class="p-4 rounded-xl bg-dark-850 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center space-x-3">
+            <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-400 font-bold">ANT-4</span>
+            <span class="text-slate-200 font-sans font-semibold text-sm">Deploy Public Company Portal to Firebase Hosting</span>
+          </div>
+          <div class="flex items-center space-x-3 text-slate-400">
+            <span class="flex items-center space-x-1">
+              <i data-lucide="user" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span class="text-slate-300">Forge (Engineer)</span>
+            </span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Live</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dual Free AI Architecture Section -->
+  <section id="architecture" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <div class="mb-10 text-center sm:text-left">
+      <div class="inline-flex items-center space-x-2 text-xs font-mono text-emerald-400 uppercase tracking-widest mb-2">
+        <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+        <span>Free Architecture Blueprint</span>
+      </div>
+      <h2 class="text-3xl font-bold text-white tracking-tight">Zero-Cost AI Engine Matrix</h2>
+      <p class="text-slate-400 text-sm mt-1">High reasoning online with Gemini CLI, complete privacy offline with Ollama.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Pillar 1: Antigravity CLI -->
+      <div class="glass-panel p-8 rounded-2xl relative overflow-hidden">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-accent-500/10 border border-accent-500/30 flex items-center justify-center text-accent-400">
+            <i data-lucide="terminal" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white">Google Antigravity CLI (`agy`)</h3>
+            <p class="text-xs text-accent-400 font-mono">Gemini 2.5 / 3.8 Flash Free Tier</p>
+          </div>
+        </div>
+        <p class="text-sm text-slate-300 leading-relaxed mb-4">
+          Directly interfaces with Google Gemini CLI without API credit burn. Paperclip injects runtime skills, resumes conversation sessions across heartbeats, and preserves task context automatically.
+        </p>
+        <div class="p-3 bg-dark-900/90 rounded-lg font-mono text-xs text-slate-300 space-y-1">
+          <div class="text-slate-500"># Verify local Antigravity CLI</div>
+          <div class="text-accent-300">$ agy --version</div>
+          <div class="text-emerald-400">0.68.0</div>
+        </div>
+      </div>
+
+      <!-- Pillar 2: Local Ollama -->
+      <div class="glass-panel p-8 rounded-2xl relative overflow-hidden">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400">
+            <i data-lucide="hard-drive" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white">Ollama Local Model Backup</h3>
+            <p class="text-xs text-teal-400 font-mono">100% Offline • http://localhost:11434</p>
+          </div>
+        </div>
+        <p class="text-sm text-slate-300 leading-relaxed mb-4">
+          When offline or handling air-gapped sensitive code, Paperclip automatically routes assignments to the local Ollama instance running <code class="text-xs text-teal-300 font-mono">llama3.2</code> or <code class="text-xs text-teal-300 font-mono">qwen2.5-coder</code>.
+        </p>
+        <div class="p-3 bg-dark-900/90 rounded-lg font-mono text-xs text-slate-300 space-y-1">
+          <div class="text-slate-500"># Start local Ollama model</div>
+          <div class="text-teal-300">$ ollama run llama3.2</div>
+          <div class="text-emerald-400">Success: API listening on port 11434</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Terminal Simulator -->
+  <section id="terminal" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <div class="glass-panel rounded-2xl p-6 sm:p-8">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+        <div class="flex items-center space-x-2">
+          <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+          <span class="text-xs font-mono text-slate-400 ml-2">antigravity-company-terminal</span>
+        </div>
+        <span class="text-xs font-mono text-slate-500">bash / powershell</span>
+      </div>
+
+      <div class="bg-black/60 rounded-xl p-4 font-mono text-xs space-y-2 text-slate-300 min-h-[160px]">
+        <p class="text-slate-500">// Simulating live Paperclip agent wakeup sequence...</p>
+        <p><span class="text-accent-400">[08:19:40]</span> <span class="text-amber-300">[HEARTBEAT]</span> Waking CEO agent Astra (id: 2f601a7e...)</p>
+        <p><span class="text-accent-400">[08:20:05]</span> <span class="text-sky-300">[AGY-EXEC]</span> Linking project workspace 'Antigravity Core MVP'</p>
+        <p><span class="text-accent-400">[08:21:22]</span> <span class="text-purple-300">[COORDINATOR]</span> PM Nexus assigned to roadmap ticket ANT-1</p>
+        <p><span class="text-accent-400">[09:06:41]</span> <span class="text-teal-300">[OLLAMA-BACKUP]</span> Atlas-Ollama verified ready on local daemon :11434</p>
+        <p class="text-emerald-400 flex items-center space-x-1">
+          <span class="animate-pulse">❯</span>
+          <span>paperclipai doctor: 11 checks passed. Company active & healthy.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-auto border-t border-white/10 py-10 glass-panel">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <div class="flex items-center space-x-2">
+        <span class="font-bold text-white">Antigravity AI Corp</span>
+        <span>•</span>
+        <span>Built by <strong class="text-slate-200">Surendra Dodda</strong> (<a href="mailto:Sdodda073@gmail.com" class="text-accent-400 hover:underline">Sdodda073@gmail.com</a>)</span>
+      </div>
+      <div class="flex items-center space-x-6">
+        <a href="https://github.com/doddasurendra/paperclip-ai-company" target="_blank" class="hover:text-white transition-colors">GitHub Repository</a>
+        <a href="https://firebase.google.com" target="_blank" class="hover:text-white transition-colors">Hosted on Firebase</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
