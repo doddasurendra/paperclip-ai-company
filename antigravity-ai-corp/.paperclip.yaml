@@ -1,0 +1,263 @@
+schema: "paperclip/v1"
+agents:
+  astra:
+    role: "ceo"
+    capabilities: "Company strategy, high-level roadmaps, autonomous coordination, review and approval of deliverables"
+    adapter:
+      config:
+        model: "auto"
+      runner: "legacy"
+      type: "gemini_local"
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "2f601a7e-21b3-44d3-b0ad-07887782fa4a"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "tangerine-cobalt"
+      schemaVersion: 1
+  atlas-ollama:
+    role: "researcher"
+    capabilities: "Local offline LLM execution, Ollama model inference, backup processing when offline"
+    adapter:
+      config:
+        model: "ollama/llama3.2"
+      runner: "legacy"
+      type: "opencode_local"
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "12fae465-af89-4796-ad8f-922ab053b5ee"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "lime-lagoon"
+      schemaVersion: 1
+  forge:
+    role: "engineer"
+    capabilities: "Full-stack software development, automated testing, debugging, code implementation and refactoring"
+    adapter:
+      config:
+        model: "auto"
+      runner: "legacy"
+      type: "gemini_local"
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "3f282a8b-a780-42fd-b247-7e56e014ee1d"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "coral-mint"
+      schemaVersion: 1
+  nexus:
+    role: "pm"
+    capabilities: "Product strategy, requirements scoping, user stories, task breakdown, feature roadmapping"
+    adapter:
+      config:
+        model: "auto"
+      runner: "legacy"
+      type: "gemini_local"
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "2e089128-c660-447d-bc3d-4c5ece9e2205"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "flamingo-jade"
+      schemaVersion: 1
+  turing:
+    role: "cto"
+    capabilities: "System architecture, technical leadership, code review standards, devops pipeline architecture"
+    adapter:
+      config:
+        model: "auto"
+      runner: "legacy"
+      type: "gemini_local"
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "agents:configure"
+      -
+        permissionKey: "agents:suggest-changes"
+      -
+        permissionKey: "audit:view_agent_actions"
+      -
+        permissionKey: "inbox:manage"
+        scope:
+          responsibleUserOnly: true
+      -
+        permissionKey: "skills:create"
+      -
+        permissionKey: "skills:suggest-changes"
+      -
+        permissionKey: "tasks:assign"
+      -
+        permissionKey: "tasks:assign_scope"
+        scope:
+          subtreeRootAgentId: "9c7a1349-54fb-4459-a9e5-b19857ee601d"
+      -
+        permissionKey: "tasks:manage_active_checkouts"
+      -
+        permissionKey: "tools:manage_connections"
+      -
+        permissionKey: "tools:manage_profiles"
+      -
+        permissionKey: "tools:manage_runtime"
+      -
+        permissionKey: "tools:use"
+      -
+        permissionKey: "tools:view_audit"
+    appearance:
+      characterVersion: "cap-v1"
+      paletteId: "turquoise-cherry"
+      schemaVersion: 1
+projects:
+  antigravity-core-mvp:
+    leadAgentSlug: "astra"
+    status: "backlog"
+schemaVersion: 7
+sidebar:
+  agents:
+    - "astra"
+    - "nexus"
+    - "turing"
+    - "atlas-ollama"
+    - "forge"
+  projects:
+    - "antigravity-core-mvp"
+tasks:
+  ant-1:
+    createdAt: "2026-11-11T09:29:13.502Z"
+    identifier: "ANT-1"
+    priority: "medium"
+    status: "todo"
+    updatedAt: "2026-11-11T09:29:13.502Z"
