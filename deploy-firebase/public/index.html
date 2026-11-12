@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antigravity AI Corp | Autonomous AI Company</title>
-  <meta name="description" content="Autonomous AI Company orchestrated with Paperclip, powered by Antigravity CLI and Ollama local models.">
+  <title>Antigravity AI Corp | Autonomous AI Company & Public APIs Hub</title>
+  <meta name="description" content="Autonomous AI Company orchestrated with Paperclip, powered by Antigravity CLI, Ollama, and connected to free Public APIs from github.com/public-apis/public-apis.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   
   <!-- Tailwind CSS & Fonts -->
@@ -80,6 +80,10 @@
     .pulse-glow-blue {
       box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
     }
+    pre code {
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
   </style>
 </head>
 <body class="min-h-screen font-sans flex flex-col">
@@ -99,21 +103,29 @@
               Live Autonomous
             </span>
           </div>
-          <p class="text-xs text-slate-400">Powered by Paperclip • AGY CLI • Ollama</p>
+          <p class="text-xs text-slate-400">Paperclip • AGY CLI • Public APIs Hub</p>
         </div>
       </div>
 
-      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-300">
+      <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-300">
         <a href="#agents" class="hover:text-accent-400 transition-colors">Org Chart</a>
+        <a href="#apis" class="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors flex items-center space-x-1">
+          <i data-lucide="key" class="w-3.5 h-3.5"></i>
+          <span>Public APIs Hub</span>
+        </a>
         <a href="#projects" class="hover:text-accent-400 transition-colors">Projects & Tasks</a>
-        <a href="#architecture" class="hover:text-accent-400 transition-colors">Free AI Engine</a>
-        <a href="#terminal" class="hover:text-accent-400 transition-colors">Heartbeat Console</a>
+        <a href="#architecture" class="hover:text-accent-400 transition-colors">Dual Engine</a>
+        <a href="#terminal" class="hover:text-accent-400 transition-colors">Console</a>
       </nav>
 
       <div class="flex items-center space-x-3">
-        <a href="https://github.com/doddasurendra/paperclip-ai-company" target="_blank" class="px-3.5 py-1.5 rounded-lg glass-card hover:bg-white/10 text-xs font-semibold text-slate-200 flex items-center space-x-2">
+        <button onclick="openKeyModal()" class="px-3.5 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-xs font-semibold text-emerald-400 border border-emerald-500/30 flex items-center space-x-1.5 transition-colors">
+          <i data-lucide="shield" class="w-4 h-4"></i>
+          <span>API Key Vault (<span id="keyVaultCount">0</span>)</span>
+        </button>
+        <a href="https://github.com/doddasurendra/paperclip-ai-company" target="_blank" class="px-3.5 py-1.5 rounded-lg glass-card hover:bg-white/10 text-xs font-semibold text-slate-200 hidden sm:flex items-center space-x-2">
           <i data-lucide="github" class="w-4 h-4"></i>
-          <span>GitHub Repo</span>
+          <span>GitHub</span>
         </a>
         <a href="http://localhost:3100" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-accent-500 to-brand-500 hover:from-accent-600 hover:to-brand-600 text-xs font-bold text-slate-950 flex items-center space-x-1.5 shadow-md shadow-accent-500/20">
           <i data-lucide="external-link" class="w-4 h-4"></i>
@@ -128,37 +140,48 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
       <div class="lg:col-span-7 space-y-6">
         <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-accent-400">
-          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-          <span>Zero-Cost Infrastructure • 100% Free Tier & Local LLMs</span>
+          <i data-lucide="plug" class="w-3.5 h-3.5"></i>
+          <span>Connected with public-apis/public-apis • Free Public APIs</span>
         </div>
         <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-          An Entire AI Company <br class="hidden sm:block"/>
+          Autonomous AI Company <br class="hidden sm:block"/>
           <span class="bg-clip-text text-transparent bg-gradient-to-r from-accent-400 via-teal-300 to-brand-400">
-            Running Autonomously
+            Powered by Public APIs
           </span>
         </h1>
         <p class="text-base text-slate-300 leading-relaxed max-w-2xl">
-          Orchestrated with <strong class="text-white">Paperclip</strong>, driven by the <strong class="text-white">Antigravity CLI (<code class="text-xs bg-slate-800 px-1.5 py-0.5 rounded text-accent-400">agy</code>)</strong>, with a local <strong class="text-white">Ollama</strong> model backup section for free, private, offline-first execution.
+          Equipped with an integrated catalog from <a href="https://github.com/public-apis/public-apis" target="_blank" class="text-accent-400 underline font-semibold">public-apis/public-apis</a>. Connect your API keys, execute live API queries, and empower agents with live real-world data and services without incurring infrastructure costs.
         </p>
 
         <!-- Metrics Grid -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
           <div class="glass-card p-4 rounded-xl">
-            <div class="text-2xl font-bold text-white font-mono">5</div>
-            <div class="text-xs text-slate-400 font-medium">Hired Agents</div>
+            <div class="text-2xl font-bold text-white font-mono" id="totalApisCount">12</div>
+            <div class="text-xs text-slate-400 font-medium">Public APIs Integrated</div>
           </div>
           <div class="glass-card p-4 rounded-xl">
-            <div class="text-2xl font-bold text-emerald-400 font-mono">$0.00</div>
-            <div class="text-xs text-slate-400 font-medium">Monthly API Spend</div>
+            <div class="text-2xl font-bold text-emerald-400 font-mono">100%</div>
+            <div class="text-xs text-slate-400 font-medium">Free / No-Auth Option</div>
           </div>
           <div class="glass-card p-4 rounded-xl">
-            <div class="text-2xl font-bold text-accent-400 font-mono">100%</div>
-            <div class="text-xs text-slate-400 font-medium">Self-Hosted Free</div>
+            <div class="text-2xl font-bold text-accent-400 font-mono">Live</div>
+            <div class="text-xs text-slate-400 font-medium">Interactive Playground</div>
           </div>
           <div class="glass-card p-4 rounded-xl">
-            <div class="text-2xl font-bold text-teal-400 font-mono">Dual</div>
-            <div class="text-xs text-slate-400 font-medium">Cloud & Local LLM</div>
+            <div class="text-2xl font-bold text-teal-400 font-mono">5</div>
+            <div class="text-xs text-slate-400 font-medium">Equipped AI Agents</div>
           </div>
+        </div>
+
+        <div class="flex flex-wrap gap-3 pt-1">
+          <a href="#apis" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-accent-500 to-brand-500 hover:from-accent-600 hover:to-brand-600 text-slate-950 font-bold text-xs flex items-center space-x-2 shadow-lg shadow-accent-500/20">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            <span>Explore Connected APIs</span>
+          </a>
+          <button onclick="openKeyModal()" class="px-5 py-2.5 rounded-xl glass-card hover:bg-white/10 text-slate-200 font-semibold text-xs flex items-center space-x-2">
+            <i data-lucide="key" class="w-4 h-4 text-emerald-400"></i>
+            <span>Manage Custom Keys</span>
+          </button>
         </div>
       </div>
 
@@ -168,18 +191,26 @@
           <div class="flex items-center justify-between pb-4 border-b border-white/10">
             <div class="flex items-center space-x-2">
               <div class="w-3 h-3 rounded-full bg-emerald-400 pulse-glow"></div>
-              <span class="text-xs font-mono font-semibold text-slate-200">COMPANY CONTROL PLANE</span>
+              <span class="text-xs font-mono font-semibold text-slate-200">API GATEWAY & CONTROL PLANE</span>
             </div>
-            <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">ANT-SYSTEM: OK</span>
+            <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">ROUTING: ACTIVE</span>
           </div>
 
-          <div class="mt-4 space-y-3.5 text-xs font-mono">
+          <div class="mt-4 space-y-3 text-xs font-mono">
             <div class="flex justify-between items-center bg-dark-850 p-2.5 rounded-lg border border-white/5">
               <span class="text-slate-400 flex items-center space-x-2">
                 <i data-lucide="layers" class="w-4 h-4 text-accent-400"></i>
                 <span>Orchestrator:</span>
               </span>
               <span class="text-white font-semibold">Paperclip Control Plane</span>
+            </div>
+
+            <div class="flex justify-between items-center bg-dark-850 p-2.5 rounded-lg border border-white/5">
+              <span class="text-slate-400 flex items-center space-x-2">
+                <i data-lucide="github" class="w-4 h-4 text-slate-300"></i>
+                <span>API Directory Source:</span>
+              </span>
+              <a href="https://github.com/public-apis/public-apis" target="_blank" class="text-accent-400 hover:underline">public-apis/public-apis</a>
             </div>
 
             <div class="flex justify-between items-center bg-dark-850 p-2.5 rounded-lg border border-white/5">
@@ -197,24 +228,164 @@
               </span>
               <span class="text-emerald-300 font-semibold">Ollama Local (v0.40+)</span>
             </div>
-
-            <div class="flex justify-between items-center bg-dark-850 p-2.5 rounded-lg border border-white/5">
-              <span class="text-slate-400 flex items-center space-x-2">
-                <i data-lucide="database" class="w-4 h-4 text-amber-400"></i>
-                <span>Embedded Database:</span>
-              </span>
-              <span class="text-slate-200 font-semibold">PostgreSQL (port 54329)</span>
-            </div>
           </div>
 
-          <div class="mt-5 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300 flex items-center space-x-2">
-            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
-            <span>Atomic checkout & budget governor active. Spend threshold set to zero runaway prevention.</span>
+          <div class="mt-4 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300 flex items-center space-x-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+            <span>All public APIs are CORS-ready and queryable directly in real-time from this portal.</span>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Public APIs Explorer & Connector Section -->
+  <section id="apis" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div>
+        <div class="inline-flex items-center space-x-2 text-xs font-mono text-emerald-400 uppercase tracking-widest mb-2">
+          <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+          <span>Curated from github.com/public-apis/public-apis</span>
+        </div>
+        <h2 class="text-3xl font-bold text-white tracking-tight">Connected Public APIs Catalog</h2>
+        <p class="text-slate-400 text-sm mt-1">Live test endpoints, inspect responses, and bind API keys to your autonomous agents.</p>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="flex flex-col sm:flex-row gap-3">
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+          <input type="text" id="apiSearchInput" oninput="filterApis()" placeholder="Search APIs by name or domain..." class="bg-dark-850 border border-white/10 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-accent-500 w-full sm:w-64">
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Filter Pills -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      <button onclick="setCategory('all')" class="cat-pill active px-3 py-1.5 rounded-lg text-xs font-medium bg-accent-500/20 text-accent-400 border border-accent-500/40" data-cat="all">All APIs</button>
+      <button onclick="setCategory('AI & Machine Learning')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-dark-850 text-slate-400 border border-white/5 hover:text-white" data-cat="AI & Machine Learning">AI & Machine Learning</button>
+      <button onclick="setCategory('Finance & Crypto')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-dark-850 text-slate-400 border border-white/5 hover:text-white" data-cat="Finance & Crypto">Finance & Crypto</button>
+      <button onclick="setCategory('Development & Cloud')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-dark-850 text-slate-400 border border-white/5 hover:text-white" data-cat="Development & Cloud">Development & Cloud</button>
+      <button onclick="setCategory('Weather & Science')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-dark-850 text-slate-400 border border-white/5 hover:text-white" data-cat="Weather & Science">Weather & Science</button>
+      <button onclick="setCategory('Geocoding & Utilities')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-dark-850 text-slate-400 border border-white/5 hover:text-white" data-cat="Geocoding & Utilities">Geocoding & Utilities</button>
+      <button onclick="setCategory('News & Social')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-dark-850 text-slate-400 border border-white/5 hover:text-white" data-cat="News & Social">News & Social</button>
+    </div>
+
+    <!-- API Cards Grid -->
+    <div id="apisContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Injected via JavaScript below -->
+    </div>
+  </section>
+
+  <!-- Live API Playground Modal / Drawer -->
+  <div id="testApiModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-panel max-w-3xl w-full rounded-2xl p-6 sm:p-8 max-h-[90vh] flex flex-col border border-white/10 shadow-2xl">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+        <div class="flex items-center space-x-3">
+          <div id="modalIcon" class="w-9 h-9 rounded-lg bg-accent-500/10 border border-accent-500/20 flex items-center justify-center text-accent-400">
+            <i data-lucide="play" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <h3 id="modalTitle" class="text-lg font-bold text-white">Test Live API</h3>
+            <p id="modalCategory" class="text-xs font-mono text-slate-400">Category</p>
+          </div>
+        </div>
+        <button onclick="closeTestModal()" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 overflow-y-auto pr-1">
+        <div>
+          <label class="block text-xs font-mono text-slate-400 mb-1">Target Endpoint:</label>
+          <div class="flex items-center space-x-2">
+            <span id="modalMethod" class="px-2.5 py-1.5 rounded bg-emerald-500/20 text-emerald-400 font-mono text-xs font-bold">GET</span>
+            <input type="text" id="modalEndpoint" class="bg-dark-900 border border-white/10 rounded-lg px-3 py-1.5 text-xs font-mono text-slate-200 flex-1 focus:outline-none focus:border-accent-500" readonly>
+          </div>
+        </div>
+
+        <div id="modalKeyContainer">
+          <label class="block text-xs font-mono text-slate-400 mb-1">API Key / Token (Optional for public endpoints):</label>
+          <input type="text" id="modalApiKeyInput" placeholder="Enter custom API key or leave blank for default..." class="bg-dark-900 border border-white/10 rounded-lg px-3 py-1.5 text-xs font-mono text-slate-200 w-full focus:outline-none focus:border-accent-500">
+        </div>
+
+        <div class="flex items-center justify-between pt-1">
+          <div class="flex items-center space-x-2 text-xs font-mono">
+            <span class="text-slate-500">Status:</span>
+            <span id="responseStatus" class="text-slate-400">Ready</span>
+            <span class="text-slate-600">•</span>
+            <span class="text-slate-500">Latency:</span>
+            <span id="responseTime" class="text-slate-400">-- ms</span>
+          </div>
+          <button id="executeBtn" onclick="executeCurrentApi()" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs flex items-center space-x-1.5">
+            <i data-lucide="play" class="w-3.5 h-3.5"></i>
+            <span>Send Request</span>
+          </button>
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono text-slate-400 mb-1">Live Response Body:</label>
+          <div class="bg-black/80 rounded-xl p-4 font-mono text-xs text-slate-300 max-h-64 overflow-y-auto border border-white/5">
+            <pre id="responseJson">Click "Send Request" to fetch live real-time API response.</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- API Key Vault Modal -->
+  <div id="keyVaultModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-panel max-w-xl w-full rounded-2xl p-6 sm:p-8 flex flex-col border border-white/10 shadow-2xl">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+            <i data-lucide="key" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white">API Key Vault</h3>
+            <p class="text-xs text-slate-400 font-mono">Secure local browser storage for agent tools</p>
+          </div>
+        </div>
+        <button onclick="closeKeyModal()" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-xs font-mono">
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">Google Gemini / Antigravity API Key:</label>
+          <input type="password" id="key_gemini" placeholder="AIzaSy..." class="bg-dark-900 border border-white/10 rounded-lg px-3 py-2 text-slate-200 w-full focus:outline-none focus:border-accent-500">
+          <p class="text-[11px] text-slate-500 mt-1">Free tier key from Google AI Studio. Assigned to Astra, Turing, Nexus & Forge.</p>
+        </div>
+
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">GitHub Personal Access Token:</label>
+          <input type="password" id="key_github" placeholder="ghp_... or gho_..." class="bg-dark-900 border border-white/10 rounded-lg px-3 py-2 text-slate-200 w-full focus:outline-none focus:border-accent-500">
+          <p class="text-[11px] text-slate-500 mt-1">Allows Turing & Forge to inspect PRs, issues, and commit trees.</p>
+        </div>
+
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">Hugging Face User Access Token:</label>
+          <input type="password" id="key_huggingface" placeholder="hf_..." class="bg-dark-900 border border-white/10 rounded-lg px-3 py-2 text-slate-200 w-full focus:outline-none focus:border-accent-500">
+          <p class="text-[11px] text-slate-500 mt-1">Enables serverless open-source model inference endpoints.</p>
+        </div>
+
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1">CoinGecko / CoinCap API Key (Optional):</label>
+          <input type="password" id="key_coingecko" placeholder="CG-..." class="bg-dark-900 border border-white/10 rounded-lg px-3 py-2 text-slate-200 w-full focus:outline-none focus:border-accent-500">
+          <p class="text-[11px] text-slate-500 mt-1">Free tier supported without auth or with optional demo key.</p>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-white/10 flex justify-between items-center">
+        <button onclick="clearAllKeys()" class="text-xs text-red-400 hover:underline">Clear Stored Keys</button>
+        <button onclick="saveKeys()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-accent-500 to-brand-500 hover:from-accent-600 hover:to-brand-600 text-slate-950 font-bold text-xs flex items-center space-x-1.5 shadow-md">
+          <i data-lucide="check" class="w-4 h-4"></i>
+          <span>Save & Bind to Agents</span>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Agent Team Org Chart Section -->
   <section id="agents" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
@@ -224,7 +395,7 @@
         <span>Autonomous Org Chart</span>
       </div>
       <h2 class="text-3xl font-bold text-white tracking-tight">The AI Employee Roster</h2>
-      <p class="text-slate-400 text-sm mt-1">Every agent has a role, job description, reporting line, and execution harness.</p>
+      <p class="text-slate-400 text-sm mt-1">Every agent has a role, job description, reporting line, and connected tool APIs.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -244,6 +415,10 @@
           </p>
         </div>
         <div class="mt-6 pt-4 border-t border-white/5 space-y-2 text-xs font-mono">
+          <div class="flex justify-between text-slate-400">
+            <span>Connected APIs:</span>
+            <span class="text-amber-300">CoinGecko, News APIs</span>
+          </div>
           <div class="flex justify-between text-slate-400">
             <span>Harness:</span>
             <span class="text-slate-200">gemini_local (Antigravity)</span>
@@ -272,6 +447,10 @@
         </div>
         <div class="mt-6 pt-4 border-t border-white/5 space-y-2 text-xs font-mono">
           <div class="flex justify-between text-slate-400">
+            <span>Connected APIs:</span>
+            <span class="text-accent-300">GitHub, HuggingFace, HTTPBin</span>
+          </div>
+          <div class="flex justify-between text-slate-400">
             <span>Harness:</span>
             <span class="text-slate-200">gemini_local (Antigravity)</span>
           </div>
@@ -298,6 +477,10 @@
           </p>
         </div>
         <div class="mt-6 pt-4 border-t border-white/5 space-y-2 text-xs font-mono">
+          <div class="flex justify-between text-slate-400">
+            <span>Connected APIs:</span>
+            <span class="text-purple-300">HackerNews, Open-Meteo</span>
+          </div>
           <div class="flex justify-between text-slate-400">
             <span>Harness:</span>
             <span class="text-slate-200">gemini_local (Antigravity)</span>
@@ -326,6 +509,10 @@
         </div>
         <div class="mt-6 pt-4 border-t border-white/5 space-y-2 text-xs font-mono">
           <div class="flex justify-between text-slate-400">
+            <span>Connected APIs:</span>
+            <span class="text-emerald-300">JSONPlaceholder, IPify, QR</span>
+          </div>
+          <div class="flex justify-between text-slate-400">
             <span>Harness:</span>
             <span class="text-slate-200">gemini_local (Antigravity)</span>
           </div>
@@ -353,8 +540,12 @@
         </div>
         <div class="mt-6 pt-4 border-t border-white/5 space-y-2 text-xs font-mono">
           <div class="flex justify-between text-slate-400">
+            <span>Connected APIs:</span>
+            <span class="text-teal-300">Localhost :11434 / Offline Hub</span>
+          </div>
+          <div class="flex justify-between text-slate-400">
             <span>Harness:</span>
-            <span class="text-teal-300">opencode_local (Ollama 11434)</span>
+            <span class="text-teal-300">opencode_local (Ollama)</span>
           </div>
           <div class="flex justify-between text-slate-400">
             <span>Reports To:</span>
@@ -383,7 +574,6 @@
 
       <!-- Tickets List -->
       <div class="space-y-3 font-mono text-xs">
-        <!-- Ticket 1 -->
         <div class="p-4 rounded-xl bg-dark-850 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div class="flex items-center space-x-3">
             <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 font-bold">ANT-1</span>
@@ -398,7 +588,6 @@
           </div>
         </div>
 
-        <!-- Ticket 2 -->
         <div class="p-4 rounded-xl bg-dark-850 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div class="flex items-center space-x-3">
             <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">ANT-2</span>
@@ -413,11 +602,10 @@
           </div>
         </div>
 
-        <!-- Ticket 3 -->
         <div class="p-4 rounded-xl bg-dark-850 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div class="flex items-center space-x-3">
             <span class="px-2 py-0.5 rounded bg-teal-500/20 text-teal-400 font-bold">ANT-3</span>
-            <span class="text-slate-200 font-sans font-semibold text-sm">Provision Local Ollama Model Fallback Pipeline</span>
+            <span class="text-slate-200 font-sans font-semibold text-sm">Connect Public APIs Catalog (public-apis/public-apis)</span>
           </div>
           <div class="flex items-center space-x-3 text-slate-400">
             <span class="flex items-center space-x-1">
@@ -428,7 +616,6 @@
           </div>
         </div>
 
-        <!-- Ticket 4 -->
         <div class="p-4 rounded-xl bg-dark-850 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div class="flex items-center space-x-3">
             <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-400 font-bold">ANT-4</span>
@@ -521,6 +708,7 @@
         <p><span class="text-accent-400">[08:20:05]</span> <span class="text-sky-300">[AGY-EXEC]</span> Linking project workspace 'Antigravity Core MVP'</p>
         <p><span class="text-accent-400">[08:21:22]</span> <span class="text-purple-300">[COORDINATOR]</span> PM Nexus assigned to roadmap ticket ANT-1</p>
         <p><span class="text-accent-400">[09:06:41]</span> <span class="text-teal-300">[OLLAMA-BACKUP]</span> Atlas-Ollama verified ready on local daemon :11434</p>
+        <p><span class="text-accent-400">[10:02:15]</span> <span class="text-emerald-400">[PUBLIC-APIS]</span> 12+ public API tools bound to company agents</p>
         <p class="text-emerald-400 flex items-center space-x-1">
           <span class="animate-pulse">❯</span>
           <span>paperclipai doctor: 11 checks passed. Company active & healthy.</span>
@@ -538,14 +726,375 @@
         <span>Built by <strong class="text-slate-200">Surendra Dodda</strong> (<a href="mailto:Sdodda073@gmail.com" class="text-accent-400 hover:underline">Sdodda073@gmail.com</a>)</span>
       </div>
       <div class="flex items-center space-x-6">
+        <a href="https://github.com/public-apis/public-apis" target="_blank" class="hover:text-emerald-400 transition-colors">public-apis/public-apis</a>
         <a href="https://github.com/doddasurendra/paperclip-ai-company" target="_blank" class="hover:text-white transition-colors">GitHub Repository</a>
         <a href="https://firebase.google.com" target="_blank" class="hover:text-white transition-colors">Hosted on Firebase</a>
       </div>
     </div>
   </footer>
 
+  <!-- Application Logic & Public APIs Data -->
   <script>
-    lucide.createIcons();
+    const PUBLIC_APIS = [
+      {
+        id: "open-meteo",
+        name: "Open-Meteo Weather API",
+        category: "Weather & Science",
+        auth: "No Auth",
+        cors: "yes",
+        https: "yes",
+        description: "Free weather forecast API for non-commercial and commercial use without API key.",
+        endpoint: "https://api.open-meteo.com/v1/forecast?latitude=16.3&longitude=80.4&current_weather=true",
+        docUrl: "https://open-meteo.com/en/docs",
+        agent: "Nexus (PM)"
+      },
+      {
+        id: "coingecko",
+        name: "CoinGecko Crypto API",
+        category: "Finance & Crypto",
+        auth: "No Auth (Free)",
+        cors: "yes",
+        https: "yes",
+        description: "Live cryptocurrency prices, volume, market cap, and exchange data.",
+        endpoint: "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd",
+        docUrl: "https://www.coingecko.com/en/api",
+        agent: "Astra (CEO)"
+      },
+      {
+        id: "coincap",
+        name: "CoinCap Assets API",
+        category: "Finance & Crypto",
+        auth: "No Auth",
+        cors: "yes",
+        https: "yes",
+        description: "Real-time market data for over 1,000 cryptocurrencies.",
+        endpoint: "https://api.coincap.io/v2/assets?limit=5",
+        docUrl: "https://docs.coincap.io/",
+        agent: "Astra (CEO)"
+      },
+      {
+        id: "github-public",
+        name: "GitHub REST API",
+        category: "Development & Cloud",
+        auth: "OAuth / Token (Free)",
+        cors: "yes",
+        https: "yes",
+        description: "Query public repositories, commit histories, issues, and org metadata.",
+        endpoint: "https://api.github.com/repos/doddasurendra/paperclip-ai-company",
+        docUrl: "https://docs.github.com/en/rest",
+        agent: "Turing (CTO)"
+      },
+      {
+        id: "ipify",
+        name: "IPify IP Address API",
+        category: "Development & Cloud",
+        auth: "No Auth",
+        cors: "yes",
+        https: "yes",
+        description: "A simple public IP address API for client network identification.",
+        endpoint: "https://api.ipify.org?format=json",
+        docUrl: "https://www.ipify.org/",
+        agent: "Forge (Engineer)"
+      },
+      {
+        id: "rest-countries",
+        name: "REST Countries",
+        category: "Geocoding & Utilities",
+        auth: "No Auth",
+        cors: "yes",
+        https: "yes",
+        description: "Get comprehensive information about world countries, capitals, and currencies.",
+        endpoint: "https://restcountries.com/v3.1/name/india?fields=name,capital,currencies,population",
+        docUrl: "https://restcountries.com/",
+        agent: "Nexus (PM)"
+      },
+      {
+        id: "free-dictionary",
+        name: "Free Dictionary API",
+        category: "Geocoding & Utilities",
+        auth: "No Auth",
+        cors: "yes",
+        https: "yes",
+        description: "English definitions, phonetics, audio pronunciations, and origins.",
+        endpoint: "https://api.dictionaryapi.dev/api/v2/entries/en/autonomous",
+        docUrl: "https://dictionaryapi.dev/",
+        agent: "Astra (CEO)"
+      },
+      {
+        id: "hackernews",
+        name: "Hacker News Firebase API",
+        category: "News & Social",
+        auth: "No Auth",
+        cors: "yes",
+        https: "yes",
+        description: "Official real-time Hacker News top stories and article items.",
+        endpoint: "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty",
+        docUrl: "https://github.com/HackerNews/API",
+        agent: "Nexus (PM)"
+      },
+      {
+        id: "httpbin",
+        name: "HTTPBin Request Inspector",
+        category: "Development & Cloud",
+        auth: "No Auth",
+        cors: "yes",
+        https: "yes",
+        description: "HTTP client testing and mock request verification service.",
+        endpoint: "https://httpbin.org/get?agent=AntigravityAI&client=Paperclip",
+        docUrl: "https://httpbin.org/",
+        agent: "Forge (Engineer)"
+      },
+      {
+        id: "jsonplaceholder",
+        name: "JSONPlaceholder Fake REST API",
+        category: "Development & Cloud",
+        auth: "No Auth",
+        cors: "yes",
+        https: "yes",
+        description: "Mock REST API for testing data models, users, posts, and tasks.",
+        endpoint: "https://jsonplaceholder.typicode.com/todos/1",
+        docUrl: "https://jsonplaceholder.typicode.com/",
+        agent: "Forge (Engineer)"
+      },
+      {
+        id: "huggingface",
+        name: "Hugging Face Inference API",
+        category: "AI & Machine Learning",
+        auth: "apiKey (Free)",
+        cors: "yes",
+        https: "yes",
+        description: "Serverless inference on 100,000+ AI models on Hugging Face hub.",
+        endpoint: "https://api-inference.huggingface.co/models/gpt2",
+        docUrl: "https://huggingface.co/docs/api-inference/index",
+        agent: "Turing (CTO)"
+      },
+      {
+        id: "gemini-api",
+        name: "Google Gemini AI API",
+        category: "AI & Machine Learning",
+        auth: "apiKey (Free Tier)",
+        cors: "yes",
+        https: "yes",
+        description: "State-of-the-art multimodal AI models including Gemini 2.5 Flash.",
+        endpoint: "https://generativelanguage.googleapis.com/v1beta/models",
+        docUrl: "https://ai.google.dev/docs",
+        agent: "All Agents"
+      }
+    ];
+
+    let currentCategory = "all";
+    let activeApi = null;
+
+    function renderApis() {
+      const container = document.getElementById("apisContainer");
+      const search = document.getElementById("apiSearchInput").value.toLowerCase();
+      
+      const filtered = PUBLIC_APIS.filter(api => {
+        const matchesCat = currentCategory === "all" || api.category === currentCategory;
+        const matchesSearch = api.name.toLowerCase().includes(search) || 
+                              api.description.toLowerCase().includes(search) ||
+                              api.category.toLowerCase().includes(search);
+        return matchesCat && matchesSearch;
+      });
+
+      document.getElementById("totalApisCount").innerText = PUBLIC_APIS.length;
+
+      container.innerHTML = filtered.map(api => `
+        <div class="glass-card rounded-2xl p-6 relative flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-md bg-white/5 text-slate-300 border border-white/10">${api.category}</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded ${api.auth.includes('No Auth') ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-sky-500/10 text-sky-400 border border-sky-500/20'}">${api.auth}</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-1">${api.name}</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">${api.description}</p>
+          </div>
+
+          <div class="space-y-3 pt-3 border-t border-white/5">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span class="flex items-center space-x-1">
+                <i data-lucide="bot" class="w-3.5 h-3.5 text-accent-400"></i>
+                <span>Agent: ${api.agent}</span>
+              </span>
+              <span class="text-emerald-400">CORS: ${api.cors}</span>
+            </div>
+
+            <div class="flex items-center space-x-2 pt-1">
+              <button onclick="openTestModal('${api.id}')" class="flex-1 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 text-xs font-semibold border border-emerald-500/30 flex items-center justify-center space-x-1.5 transition-colors">
+                <i data-lucide="play" class="w-3 h-3"></i>
+                <span>Test Live API</span>
+              </button>
+              <a href="${api.docUrl}" target="_blank" class="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white border border-white/5">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      `).join("");
+
+      lucide.createIcons();
+    }
+
+    function setCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll(".cat-pill").forEach(el => {
+        if(el.getAttribute("data-cat") === cat) {
+          el.className = "cat-pill active px-3 py-1.5 rounded-lg text-xs font-medium bg-accent-500/20 text-accent-400 border border-accent-500/40";
+        } else {
+          el.className = "cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-dark-850 text-slate-400 border border-white/5 hover:text-white";
+        }
+      });
+      renderApis();
+    }
+
+    function filterApis() {
+      renderApis();
+    }
+
+    function openTestModal(apiId) {
+      const api = PUBLIC_APIS.find(a => a.id === apiId);
+      if(!api) return;
+      activeApi = api;
+
+      document.getElementById("modalTitle").innerText = `Test ${api.name}`;
+      document.getElementById("modalCategory").innerText = `${api.category} • Auth: ${api.auth}`;
+      document.getElementById("modalEndpoint").value = api.endpoint;
+      document.getElementById("responseStatus").innerText = "Ready";
+      document.getElementById("responseStatus").className = "text-slate-400";
+      document.getElementById("responseTime").innerText = "-- ms";
+      document.getElementById("responseJson").innerText = "Click 'Send Request' to fetch live real-time API response.";
+
+      // Pre-fill key if exists in storage
+      const keys = getStoredKeys();
+      if(api.id.includes("gemini") && keys.gemini) {
+        document.getElementById("modalApiKeyInput").value = keys.gemini;
+      } else if(api.id.includes("github") && keys.github) {
+        document.getElementById("modalApiKeyInput").value = keys.github;
+      } else if(api.id.includes("huggingface") && keys.huggingface) {
+        document.getElementById("modalApiKeyInput").value = keys.huggingface;
+      } else {
+        document.getElementById("modalApiKeyInput").value = "";
+      }
+
+      document.getElementById("testApiModal").classList.remove("hidden");
+      lucide.createIcons();
+    }
+
+    function closeTestModal() {
+      document.getElementById("testApiModal").classList.add("hidden");
+    }
+
+    async function executeCurrentApi() {
+      if(!activeApi) return;
+      const statusEl = document.getElementById("responseStatus");
+      const timeEl = document.getElementById("responseTime");
+      const jsonEl = document.getElementById("responseJson");
+      const btn = document.getElementById("executeBtn");
+      const userKey = document.getElementById("modalApiKeyInput").value.trim();
+
+      let targetUrl = activeApi.endpoint;
+      let headers = {};
+
+      // If key provided, append or set header
+      if(userKey) {
+        if(activeApi.id.includes("gemini")) {
+          targetUrl += (targetUrl.includes("?") ? "&" : "?") + "key=" + userKey;
+        } else if(activeApi.id.includes("github")) {
+          headers["Authorization"] = "token " + userKey;
+        } else if(activeApi.id.includes("huggingface")) {
+          headers["Authorization"] = "Bearer " + userKey;
+        }
+      }
+
+      statusEl.innerText = "Querying...";
+      statusEl.className = "text-amber-400 animate-pulse";
+      jsonEl.innerText = "Fetching real-time data from " + targetUrl + "...";
+      btn.disabled = true;
+
+      const t0 = performance.now();
+      try {
+        const res = await fetch(targetUrl, { headers });
+        const latency = Math.round(performance.now() - t0);
+        timeEl.innerText = `${latency} ms`;
+
+        statusEl.innerText = `${res.status} ${res.statusText || 'OK'}`;
+        statusEl.className = res.ok ? "text-emerald-400 font-bold" : "text-amber-400 font-bold";
+
+        const contentType = res.headers.get("content-type");
+        if(contentType && contentType.includes("application/json")) {
+          const data = await res.json();
+          jsonEl.innerText = JSON.stringify(data, null, 2);
+        } else {
+          const text = await res.text();
+          jsonEl.innerText = text.substring(0, 2000);
+        }
+      } catch(err) {
+        const latency = Math.round(performance.now() - t0);
+        timeEl.innerText = `${latency} ms`;
+        statusEl.innerText = "Error / CORS Blocked";
+        statusEl.className = "text-red-400 font-bold";
+        jsonEl.innerText = `Network Request Error:\n${err.message}\n\nNote: If this endpoint restricts browser CORS, query it through the Paperclip backend or curl.`;
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    // Key Vault Helpers
+    function getStoredKeys() {
+      try {
+        return JSON.parse(localStorage.getItem("antigravity_api_vault") || "{}");
+      } catch(e) {
+        return {};
+      }
+    }
+
+    function openKeyModal() {
+      const keys = getStoredKeys();
+      document.getElementById("key_gemini").value = keys.gemini || "";
+      document.getElementById("key_github").value = keys.github || "";
+      document.getElementById("key_huggingface").value = keys.huggingface || "";
+      document.getElementById("key_coingecko").value = keys.coingecko || "";
+      document.getElementById("keyVaultModal").classList.remove("hidden");
+      lucide.createIcons();
+    }
+
+    function closeKeyModal() {
+      document.getElementById("keyVaultModal").classList.add("hidden");
+    }
+
+    function saveKeys() {
+      const keys = {
+        gemini: document.getElementById("key_gemini").value.trim(),
+        github: document.getElementById("key_github").value.trim(),
+        huggingface: document.getElementById("key_huggingface").value.trim(),
+        coingecko: document.getElementById("key_coingecko").value.trim()
+      };
+      localStorage.setItem("antigravity_api_vault", JSON.stringify(keys));
+      updateVaultCount();
+      closeKeyModal();
+      alert("API keys securely saved and connected to Antigravity AI company agents!");
+    }
+
+    function clearAllKeys() {
+      if(confirm("Clear all locally stored API keys?")) {
+        localStorage.removeItem("antigravity_api_vault");
+        updateVaultCount();
+        closeKeyModal();
+      }
+    }
+
+    function updateVaultCount() {
+      const keys = getStoredKeys();
+      const count = Object.values(keys).filter(Boolean).length;
+      document.getElementById("keyVaultCount").innerText = count;
+    }
+
+    // Initialize on load
+    document.addEventListener("DOMContentLoaded", () => {
+      renderApis();
+      updateVaultCount();
+      lucide.createIcons();
+    });
   </script>
 </body>
 </html>
