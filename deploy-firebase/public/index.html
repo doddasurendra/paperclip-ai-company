@@ -113,6 +113,7 @@
           <i data-lucide="key" class="w-3.5 h-3.5"></i>
           <span>Public APIs Hub</span>
         </a>
+        <a href="#plugins" class="text-purple-400 font-semibold hover:text-purple-300 transition-colors flex items-center space-x-1"><i data-lucide="puzzle" class="w-3.5 h-3.5"></i><span>AI Plugins (5)</span></a>
         <a href="#projects" class="hover:text-accent-400 transition-colors">Projects & Tasks</a>
         <a href="#architecture" class="hover:text-accent-400 transition-colors">Dual Engine</a>
         <a href="#terminal" class="hover:text-accent-400 transition-colors">Console</a>
@@ -862,6 +863,228 @@
             <span class="text-slate-200">Astra (CEO)</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Equipped AI Plugins Section (5 Core Extensions) -->
+  <section id="plugins" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <div class="glass-panel rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-purple-500/30 bg-gradient-to-br from-slate-900/90 via-purple-950/20 to-slate-900/90">
+      <div class="absolute -top-32 -right-32 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-white/10 gap-4">
+        <div>
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/30 text-purple-300 text-xs font-semibold mb-3">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Equipped Agent Extensions</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            5 Supercharged AI Plugins
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl">
+            Connected to <strong class="text-purple-300">Surendra AI Company</strong> and the local Paperclip control plane (<a href="http://localhost:3100/" target="_blank" class="text-purple-400 underline hover:text-purple-300">http://localhost:3100</a>). Solving usage limits, video generation, lean code optimization, free social search, and skill security.
+          </p>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="inline-flex items-center px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-medium">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-2"></span>
+            5 / 5 Installed & Active
+          </span>
+        </div>
+      </div>
+
+      <!-- Plugins Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Plugin 1: FreeLLMAPI -->
+        <div class="glass-card rounded-2xl p-6 border border-white/10 hover:border-blue-400/40 transition-all flex flex-col justify-between group hover:shadow-lg hover:shadow-blue-500/10">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-blue-400 font-bold text-lg group-hover:scale-105 transition-transform">
+                <i data-lucide="layers" class="w-6 h-6"></i>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                Model Routing
+              </span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs font-mono text-slate-400">#1</span>
+              <h3 class="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">FreeLLMAPI</h3>
+            </div>
+            <p class="text-xs text-blue-400 font-medium mt-1">Pools free tiers of AI providers</p>
+            <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+              Pools the free tiers of multiple AI providers behind one unified OpenAI-compatible endpoint. When one provider hits its rate limit, it switches automatically to the next best model. Fully compatible with Claude Code and local agents.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 space-y-3">
+            <div class="bg-slate-950/70 rounded-lg p-2.5 font-mono text-xs text-slate-300 flex items-center justify-between border border-white/5">
+              <span class="truncate">github.com/tashfeenahmed/freellmapi</span>
+              <button onclick="navigator.clipboard.writeText('https://github.com/tashfeenahmed/freellmapi'); alert('Copied GitHub link!');" class="text-slate-400 hover:text-white ml-2" title="Copy URL">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-slate-400">Status: <strong class="text-emerald-400">Self-Hosted / Active</strong></span>
+              <a href="https://github.com/tashfeenahmed/freellmapi" target="_blank" class="text-blue-400 hover:text-blue-300 font-medium flex items-center space-x-1">
+                <span>View Repo</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plugin 2: Lemo-Opuscar -->
+        <div class="glass-card rounded-2xl p-6 border border-white/10 hover:border-pink-400/40 transition-all flex flex-col justify-between group hover:shadow-lg hover:shadow-pink-500/10">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-pink-500/20 border border-pink-400/30 flex items-center justify-center text-pink-400 font-bold text-lg group-hover:scale-105 transition-transform">
+                <i data-lucide="film" class="w-6 h-6"></i>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-pink-500/20 text-pink-300 border border-pink-500/30">
+                Code-to-Film
+              </span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs font-mono text-slate-400">#2</span>
+              <h3 class="text-xl font-bold text-white group-hover:text-pink-300 transition-colors">Lemo-Opuscar</h3>
+            </div>
+            <p class="text-xs text-pink-400 font-medium mt-1">Generative animated film studio</p>
+            <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+              A specialized Claude Code skill that creates short animated films in dozens of aesthetic styles entirely in code. Enables agents to produce generative motion sequences, cinematics, and video content directly from prompts.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 space-y-3">
+            <div class="bg-slate-950/70 rounded-lg p-2 font-mono text-[11px] text-pink-300 flex items-center justify-between border border-white/5">
+              <span class="truncate">claude plugin install lemo-opuscar@lemolab</span>
+              <button onclick="navigator.clipboard.writeText('claude plugin install lemo-opuscar@lemolab'); alert('Copied install command!');" class="text-slate-400 hover:text-white ml-2">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-slate-400">Marketplace: <strong class="text-pink-400">lemolab</strong></span>
+              <a href="https://github.com/lemomo-ai/lemo-opuscar" target="_blank" class="text-pink-400 hover:text-pink-300 font-medium flex items-center space-x-1">
+                <span>View Repo</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plugin 3: Ponytail -->
+        <div class="glass-card rounded-2xl p-6 border border-white/10 hover:border-purple-400/40 transition-all flex flex-col justify-between group hover:shadow-lg hover:shadow-purple-500/10">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-400 font-bold text-lg group-hover:scale-105 transition-transform">
+                <i data-lucide="scissors" class="w-6 h-6"></i>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                Token Optimizer
+              </span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs font-mono text-slate-400">#3</span>
+              <h3 class="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">Ponytail</h3>
+            </div>
+            <p class="text-xs text-purple-400 font-medium mt-1">Anti-overengineering guardrail</p>
+            <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+              Stops coding agents from over-engineering solutions. Keeps code lean, eliminates needless boilerplate, prevents premature abstractions, and saves 30-50% token usage per task execution.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 space-y-3">
+            <div class="bg-slate-950/70 rounded-lg p-2 font-mono text-[11px] text-purple-300 flex items-center justify-between border border-white/5">
+              <span class="truncate">/plugin install ponytail@ponytail</span>
+              <button onclick="navigator.clipboard.writeText('/plugin install ponytail@ponytail'); alert('Copied plugin command!');" class="text-slate-400 hover:text-white ml-2">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-slate-400">Efficiency: <strong class="text-emerald-400">+45% Conciseness</strong></span>
+              <a href="https://github.com/DietrichGebert/ponytail" target="_blank" class="text-purple-400 hover:text-purple-300 font-medium flex items-center space-x-1">
+                <span>View Repo</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plugin 4: Agent Reach -->
+        <div class="glass-card rounded-2xl p-6 border border-white/10 hover:border-emerald-400/40 transition-all flex flex-col justify-between group hover:shadow-lg hover:shadow-emerald-500/10">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400 font-bold text-lg group-hover:scale-105 transition-transform">
+                <i data-lucide="globe" class="w-6 h-6"></i>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                Web Search
+              </span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs font-mono text-slate-400">#4</span>
+              <h3 class="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">Agent Reach</h3>
+            </div>
+            <p class="text-xs text-emerald-400 font-medium mt-1">Free multi-network search & scrape</p>
+            <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+              Equips AI agents with free read and search access across the live web: Twitter/X, Reddit, YouTube, GitHub, and general search engines without paying for expensive subscription APIs.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 space-y-3">
+            <div class="bg-slate-950/70 rounded-lg p-2.5 font-mono text-xs text-slate-300 flex items-center justify-between border border-white/5">
+              <span class="truncate">github.com/Panniantong/Agent-Reach</span>
+              <button onclick="navigator.clipboard.writeText('https://github.com/Panniantong/Agent-Reach'); alert('Copied GitHub link!');" class="text-slate-400 hover:text-white ml-2">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-slate-400">Networks: <strong class="text-emerald-400">X, Reddit, YT, GitHub</strong></span>
+              <a href="https://github.com/Panniantong/Agent-Reach" target="_blank" class="text-emerald-400 hover:text-emerald-300 font-medium flex items-center space-x-1">
+                <span>View Repo</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plugin 5: NVIDIA SkillSpector -->
+        <div class="glass-card rounded-2xl p-6 border border-white/10 hover:border-lime-400/40 transition-all flex flex-col justify-between group hover:shadow-lg hover:shadow-lime-500/10 md:col-span-2 lg:col-span-2">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-xl bg-lime-500/20 border border-lime-400/30 flex items-center justify-center text-lime-400 font-bold text-lg group-hover:scale-105 transition-transform">
+                  <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-xs font-mono text-slate-400">#5</span>
+                    <h3 class="text-xl font-bold text-white group-hover:text-lime-300 transition-colors">NVIDIA SkillSpector</h3>
+                  </div>
+                  <p class="text-xs text-lime-400 font-medium">Open-source agent skill security scanner</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-lime-500/20 text-lime-300 border border-lime-500/30">
+                Security & Safety Guardrail
+              </span>
+            </div>
+            <p class="text-sm text-slate-300 mt-2 leading-relaxed">
+              An open-source static and semantic scanner by NVIDIA that audits AI agent skills for risky instructions, hidden execution code, data exfiltration, or malware before you install them into your company workspace. Enforces zero-trust skill governance.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="flex items-center space-x-4 text-xs text-slate-400 font-mono">
+              <span>Repo: <a href="https://github.com/NVIDIA/skillspector" target="_blank" class="text-lime-400 underline hover:text-lime-300">github.com/NVIDIA/skillspector</a></span>
+              <span>•</span>
+              <span>Docs: <a href="https://docs.nvidia.com/skills/scanning-agent-skills" target="_blank" class="text-lime-400 underline hover:text-lime-300">docs.nvidia.com</a></span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-lime-500/20 text-lime-300 text-xs font-semibold">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 mr-1.5"></i>
+                Pre-Flight Scanner Armed
+              </span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
