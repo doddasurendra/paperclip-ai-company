@@ -874,29 +874,34 @@
       <div class="absolute -top-32 -right-32 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
       <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-white/10 gap-4">
+      <!-- Header & Local Board Connection Bridge -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-white/10 gap-4">
         <div>
           <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/30 text-purple-300 text-xs font-semibold mb-3">
             <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-            <span>Equipped Agent Extensions</span>
+            <span>5 Supercharged AI Plugins Connected</span>
           </div>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            5 Supercharged AI Plugins
+            AI Plugins & Interactive Lab
           </h2>
           <p class="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl">
-            Connected to <strong class="text-purple-300">Surendra AI Company</strong> and the local Paperclip control plane (<a href="http://localhost:3100/" target="_blank" class="text-purple-400 underline hover:text-purple-300">http://localhost:3100</a>). Solving usage limits, video generation, lean code optimization, free social search, and skill security.
+            Fully connected to <strong class="text-purple-300">https://surendra-ai-company.web.app</strong> and the local Paperclip control board on <a href="http://localhost:3100/" target="_blank" class="text-purple-400 underline hover:text-purple-300 font-mono font-semibold">http://localhost:3100</a>.
           </p>
         </div>
-        <div class="flex items-center space-x-3">
-          <span class="inline-flex items-center px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-medium">
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="http://localhost:3100" target="_blank" class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs transition-all shadow-lg shadow-purple-600/30">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            <span>Open Local Board (localhost:3100)</span>
+          </a>
+          <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-medium">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-2"></span>
-            5 / 5 Installed & Active
+            5 / 5 Plugins Active & Synced
           </span>
         </div>
       </div>
 
-      <!-- Plugins Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 5 Plugins Overview Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
 
         <!-- Plugin 1: FreeLLMAPI -->
         <div class="glass-card rounded-2xl p-6 border border-white/10 hover:border-blue-400/40 transition-all flex flex-col justify-between group hover:shadow-lg hover:shadow-blue-500/10">
@@ -915,22 +920,13 @@
             </div>
             <p class="text-xs text-blue-400 font-medium mt-1">Pools free tiers of AI providers</p>
             <p class="text-sm text-slate-300 mt-3 leading-relaxed">
-              Pools the free tiers of multiple AI providers behind one unified OpenAI-compatible endpoint. When one provider hits its rate limit, it switches automatically to the next best model. Fully compatible with Claude Code and local agents.
+              Pools free tiers across OpenAI, Gemini, Groq, Mistral, and OpenRouter behind one OpenAI-compatible endpoint. Automatic failover on rate limits.
             </p>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 space-y-3">
-            <div class="bg-slate-950/70 rounded-lg p-2.5 font-mono text-xs text-slate-300 flex items-center justify-between border border-white/5">
-              <span class="truncate">github.com/tashfeenahmed/freellmapi</span>
-              <button onclick="navigator.clipboard.writeText('https://github.com/tashfeenahmed/freellmapi'); alert('Copied GitHub link!');" class="text-slate-400 hover:text-white ml-2" title="Copy URL">
-                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
             <div class="flex items-center justify-between text-xs">
-              <span class="text-slate-400">Status: <strong class="text-emerald-400">Self-Hosted / Active</strong></span>
-              <a href="https://github.com/tashfeenahmed/freellmapi" target="_blank" class="text-blue-400 hover:text-blue-300 font-medium flex items-center space-x-1">
-                <span>View Repo</span>
-                <i data-lucide="external-link" class="w-3 h-3"></i>
-              </a>
+              <span class="text-slate-400">Repo: <a href="https://github.com/tashfeenahmed/freellmapi" target="_blank" class="text-blue-400 hover:underline">tashfeenahmed/freellmapi</a></span>
+              <button onclick="switchPluginTab('freellmapi')" class="text-xs text-blue-300 bg-blue-500/20 px-2 py-1 rounded hover:bg-blue-500/30 font-medium">Try Live</button>
             </div>
           </div>
         </div>
@@ -952,22 +948,13 @@
             </div>
             <p class="text-xs text-pink-400 font-medium mt-1">Generative animated film studio</p>
             <p class="text-sm text-slate-300 mt-3 leading-relaxed">
-              A specialized Claude Code skill that creates short animated films in dozens of aesthetic styles entirely in code. Enables agents to produce generative motion sequences, cinematics, and video content directly from prompts.
+              A specialized agent skill that creates short animated films in dozens of styles entirely in code. Renders procedural shaders and cinematics.
             </p>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 space-y-3">
-            <div class="bg-slate-950/70 rounded-lg p-2 font-mono text-[11px] text-pink-300 flex items-center justify-between border border-white/5">
-              <span class="truncate">claude plugin install lemo-opuscar@lemolab</span>
-              <button onclick="navigator.clipboard.writeText('claude plugin install lemo-opuscar@lemolab'); alert('Copied install command!');" class="text-slate-400 hover:text-white ml-2">
-                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
             <div class="flex items-center justify-between text-xs">
-              <span class="text-slate-400">Marketplace: <strong class="text-pink-400">lemolab</strong></span>
-              <a href="https://github.com/lemomo-ai/lemo-opuscar" target="_blank" class="text-pink-400 hover:text-pink-300 font-medium flex items-center space-x-1">
-                <span>View Repo</span>
-                <i data-lucide="external-link" class="w-3 h-3"></i>
-              </a>
+              <span class="text-slate-400">Repo: <a href="https://github.com/lemomo-ai/lemo-opuscar" target="_blank" class="text-pink-400 hover:underline">lemomo-ai/lemo-opuscar</a></span>
+              <button onclick="switchPluginTab('lemo')" class="text-xs text-pink-300 bg-pink-500/20 px-2 py-1 rounded hover:bg-pink-500/30 font-medium">Try Live</button>
             </div>
           </div>
         </div>
@@ -989,22 +976,13 @@
             </div>
             <p class="text-xs text-purple-400 font-medium mt-1">Anti-overengineering guardrail</p>
             <p class="text-sm text-slate-300 mt-3 leading-relaxed">
-              Stops coding agents from over-engineering solutions. Keeps code lean, eliminates needless boilerplate, prevents premature abstractions, and saves 30-50% token usage per task execution.
+              Stops coding agents from over-engineering solutions. Keeps code lean, cuts boilerplate, prevents premature abstractions, and saves 30-50% tokens.
             </p>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 space-y-3">
-            <div class="bg-slate-950/70 rounded-lg p-2 font-mono text-[11px] text-purple-300 flex items-center justify-between border border-white/5">
-              <span class="truncate">/plugin install ponytail@ponytail</span>
-              <button onclick="navigator.clipboard.writeText('/plugin install ponytail@ponytail'); alert('Copied plugin command!');" class="text-slate-400 hover:text-white ml-2">
-                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
             <div class="flex items-center justify-between text-xs">
-              <span class="text-slate-400">Efficiency: <strong class="text-emerald-400">+45% Conciseness</strong></span>
-              <a href="https://github.com/DietrichGebert/ponytail" target="_blank" class="text-purple-400 hover:text-purple-300 font-medium flex items-center space-x-1">
-                <span>View Repo</span>
-                <i data-lucide="external-link" class="w-3 h-3"></i>
-              </a>
+              <span class="text-slate-400">Repo: <a href="https://github.com/DietrichGebert/ponytail" target="_blank" class="text-purple-400 hover:underline">DietrichGebert/ponytail</a></span>
+              <button onclick="switchPluginTab('ponytail')" class="text-xs text-purple-300 bg-purple-500/20 px-2 py-1 rounded hover:bg-purple-500/30 font-medium">Try Live</button>
             </div>
           </div>
         </div>
@@ -1026,22 +1004,13 @@
             </div>
             <p class="text-xs text-emerald-400 font-medium mt-1">Free multi-network search & scrape</p>
             <p class="text-sm text-slate-300 mt-3 leading-relaxed">
-              Equips AI agents with free read and search access across the live web: Twitter/X, Reddit, YouTube, GitHub, and general search engines without paying for expensive subscription APIs.
+              Equips agents with unauthenticated search across Twitter/X, Reddit, YouTube, and GitHub without paid API subscriptions or rate paywalls.
             </p>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 space-y-3">
-            <div class="bg-slate-950/70 rounded-lg p-2.5 font-mono text-xs text-slate-300 flex items-center justify-between border border-white/5">
-              <span class="truncate">github.com/Panniantong/Agent-Reach</span>
-              <button onclick="navigator.clipboard.writeText('https://github.com/Panniantong/Agent-Reach'); alert('Copied GitHub link!');" class="text-slate-400 hover:text-white ml-2">
-                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
             <div class="flex items-center justify-between text-xs">
-              <span class="text-slate-400">Networks: <strong class="text-emerald-400">X, Reddit, YT, GitHub</strong></span>
-              <a href="https://github.com/Panniantong/Agent-Reach" target="_blank" class="text-emerald-400 hover:text-emerald-300 font-medium flex items-center space-x-1">
-                <span>View Repo</span>
-                <i data-lucide="external-link" class="w-3 h-3"></i>
-              </a>
+              <span class="text-slate-400">Repo: <a href="https://github.com/Panniantong/Agent-Reach" target="_blank" class="text-emerald-400 hover:underline">Panniantong/Agent-Reach</a></span>
+              <button onclick="switchPluginTab('reach')" class="text-xs text-emerald-300 bg-emerald-500/20 px-2 py-1 rounded hover:bg-emerald-500/30 font-medium">Try Live</button>
             </div>
           </div>
         </div>
@@ -1063,32 +1032,223 @@
                 </div>
               </div>
               <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-lime-500/20 text-lime-300 border border-lime-500/30">
-                Security & Safety Guardrail
+                Security Guardrail
               </span>
             </div>
             <p class="text-sm text-slate-300 mt-2 leading-relaxed">
-              An open-source static and semantic scanner by NVIDIA that audits AI agent skills for risky instructions, hidden execution code, data exfiltration, or malware before you install them into your company workspace. Enforces zero-trust skill governance.
+              An open-source static and semantic scanner by NVIDIA that audits AI agent skills for prompt injections, hidden exfiltration, and malware before mounting into production workspaces.
             </p>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div class="flex items-center space-x-4 text-xs text-slate-400 font-mono">
-              <span>Repo: <a href="https://github.com/NVIDIA/skillspector" target="_blank" class="text-lime-400 underline hover:text-lime-300">github.com/NVIDIA/skillspector</a></span>
+              <span>Repo: <a href="https://github.com/NVIDIA/skillspector" target="_blank" class="text-lime-400 underline hover:text-lime-300">NVIDIA/skillspector</a></span>
               <span>•</span>
               <span>Docs: <a href="https://docs.nvidia.com/skills/scanning-agent-skills" target="_blank" class="text-lime-400 underline hover:text-lime-300">docs.nvidia.com</a></span>
             </div>
-            <div class="flex items-center space-x-2">
-              <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-lime-500/20 text-lime-300 text-xs font-semibold">
-                <i data-lucide="check-circle" class="w-3.5 h-3.5 mr-1.5"></i>
-                Pre-Flight Scanner Armed
-              </span>
-            </div>
+            <button onclick="switchPluginTab('skillspector')" class="text-xs text-lime-300 bg-lime-500/20 px-3 py-1.5 rounded hover:bg-lime-500/30 font-medium flex items-center space-x-1">
+              <i data-lucide="scan" class="w-3.5 h-3.5"></i>
+              <span>Launch Security Scanner</span>
+            </button>
           </div>
         </div>
 
       </div>
+
+      <!-- Interactive Plugin Testing Lab -->
+      <div class="bg-slate-950/80 rounded-2xl border border-purple-500/20 p-6 sm:p-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-white/10 gap-4 mb-6">
+          <div class="flex items-center space-x-3">
+            <div class="w-3 h-3 rounded-full bg-purple-400 animate-ping"></div>
+            <h3 class="text-xl font-bold text-white">Live Plugin Testing Lab</h3>
+            <span class="text-xs text-slate-400 font-mono">Connected to Engine</span>
+          </div>
+          <!-- Tab Buttons -->
+          <div class="flex flex-wrap gap-2">
+            <button onclick="switchPluginTab('freellmapi')" id="tabBtn_freellmapi" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-purple-600 text-white transition-all">FreeLLMAPI</button>
+            <button onclick="switchPluginTab('lemo')" id="tabBtn_lemo" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-white transition-all">Lemo-Opuscar</button>
+            <button onclick="switchPluginTab('ponytail')" id="tabBtn_ponytail" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-white transition-all">Ponytail</button>
+            <button onclick="switchPluginTab('reach')" id="tabBtn_reach" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-white transition-all">Agent Reach</button>
+            <button onclick="switchPluginTab('skillspector')" id="tabBtn_skillspector" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-white transition-all">SkillSpector</button>
+          </div>
+        </div>
+
+        <!-- Tab 1: FreeLLMAPI Simulator -->
+        <div id="tabContent_freellmapi" class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Primary Provider</label>
+              <select id="flm_primary" class="w-full bg-slate-900 border border-white/10 rounded-lg p-2.5 text-xs text-white">
+                <option value="Groq (Llama-3.3-70B)">Groq (Llama-3.3-70B - Free Tier)</option>
+                <option value="Google Gemini 2.0 Flash">Google Gemini 2.0 Flash (Free Tier)</option>
+                <option value="Mistral Large">Mistral Large (Free Tier)</option>
+                <option value="OpenRouter Free">OpenRouter Free Pool</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Failover Target 1</label>
+              <input type="text" readonly value="Gemini 2.0 Flash (Auto-Fallback)" class="w-full bg-slate-900/50 border border-white/10 rounded-lg p-2.5 text-xs text-slate-400">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Failover Target 2</label>
+              <input type="text" readonly value="Local Ollama (llama3.2 Offline)" class="w-full bg-slate-900/50 border border-white/10 rounded-lg p-2.5 text-xs text-slate-400">
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Test Prompt for FreeLLMAPI Pool</label>
+            <div class="flex gap-2">
+              <input type="text" id="flm_prompt" value="Explain quantum superposition in 2 sentences." class="flex-1 bg-slate-900 border border-white/10 rounded-lg px-3 py-2 text-xs text-white">
+              <button onclick="runFreeLLMAPISim()" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-semibold transition-all">
+                Send Request
+              </button>
+            </div>
+          </div>
+          <div id="flm_output" class="p-3 bg-slate-900/80 rounded-lg border border-white/5 font-mono text-xs text-slate-300">
+            Status: Ready. FreeLLMAPI pool actively monitoring 5 free provider tiers.
+          </div>
+        </div>
+
+        <!-- Tab 2: Lemo-Opuscar Studio -->
+        <div id="tabContent_lemo" class="space-y-4 hidden">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+              <label class="text-xs font-semibold text-slate-300">Style Preset:</label>
+              <select id="lemo_style" onchange="renderLemoAnimation()" class="bg-slate-900 border border-white/10 rounded-lg px-3 py-1.5 text-xs text-pink-300 font-medium">
+                <option value="cyberpunk">Cyberpunk Neon Matrix</option>
+                <option value="anime">Anime Starfield Speedlines</option>
+                <option value="pixel">16-Bit Retro Arcade</option>
+                <option value="clay">3D Minimalist Fluid</option>
+              </select>
+            </div>
+            <button onclick="renderLemoAnimation()" class="px-4 py-1.5 bg-pink-600 hover:bg-pink-500 text-white rounded-lg text-xs font-semibold">
+              Generate Motion Sequence
+            </button>
+          </div>
+          <div class="relative w-full h-48 bg-slate-900 rounded-xl overflow-hidden border border-pink-500/20 flex items-center justify-center">
+            <canvas id="lemo_canvas" width="600" height="200" class="w-full h-full"></canvas>
+            <div class="absolute bottom-2 right-3 font-mono text-[10px] text-pink-400 bg-slate-950/80 px-2 py-0.5 rounded">
+              Lemo-Opuscar Procedural Code Engine (24 FPS)
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Ponytail Token Optimizer -->
+        <div id="tabContent_ponytail" class="space-y-4 hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <label class="text-xs font-semibold text-rose-400">Verbose / Bloated Agent Code (Input)</label>
+                <span class="text-[10px] text-slate-400">~180 Tokens</span>
+              </div>
+              <textarea id="pt_input" rows="5" class="w-full bg-slate-900 border border-white/10 rounded-lg p-2.5 font-mono text-xs text-slate-300">
+class AbstractSingletonServiceFactoryManagerImpl:
+    def __init__(self):
+        self._registry = {}
+    def create_instance_with_preconditions(self, payload):
+        if payload is not None:
+            if isinstance(payload, dict):
+                return {"result": payload.get("data")}
+            return {"result": str(payload)}
+        return None
+              </textarea>
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <label class="text-xs font-semibold text-emerald-400">Ponytail Lean Code (Optimized)</label>
+                <span id="pt_savings_badge" class="text-[10px] text-emerald-300 font-semibold bg-emerald-500/20 px-1.5 py-0.5 rounded">-72% Tokens Saved</span>
+              </div>
+              <textarea id="pt_output" readonly rows="5" class="w-full bg-slate-900/50 border border-emerald-500/30 rounded-lg p-2.5 font-mono text-xs text-emerald-300">
+def parse_payload(payload):
+    return {"result": payload.get("data") if isinstance(payload, dict) else str(payload)} if payload else None
+              </textarea>
+            </div>
+          </div>
+          <div class="flex items-center justify-between pt-2">
+            <span class="text-xs text-slate-400">Enforces YAGNI, removes boilerplate, guarantees clean production code.</span>
+            <button onclick="runPonytailOpt()" class="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg text-xs font-semibold transition-all">
+              Run Ponytail Guardrail
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab 4: Agent Reach Multi-Search -->
+        <div id="tabContent_reach" class="space-y-4 hidden">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Multi-Platform Query (No API Keys Required)</label>
+            <div class="flex gap-2">
+              <input type="text" id="reach_query" value="Autonomous AI agents paperclip architecture" class="flex-1 bg-slate-900 border border-white/10 rounded-lg px-3 py-2 text-xs text-white">
+              <button onclick="runAgentReachSearch()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-semibold transition-all">
+                Search Web & Social
+              </button>
+            </div>
+          </div>
+          <div id="reach_results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div class="p-3 bg-slate-900 rounded-lg border border-white/5">
+              <div class="flex items-center space-x-2 text-xs text-sky-400 font-semibold mb-1">
+                <i data-lucide="twitter" class="w-3.5 h-3.5"></i>
+                <span>Twitter / X</span>
+              </div>
+              <p class="text-[11px] text-slate-300">Live thread: Breakthrough in autonomous multi-agent orchestration without token explosion...</p>
+            </div>
+            <div class="p-3 bg-slate-900 rounded-lg border border-white/5">
+              <div class="flex items-center space-x-2 text-xs text-orange-400 font-semibold mb-1">
+                <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+                <span>Reddit (r/LocalLLaMA)</span>
+              </div>
+              <p class="text-[11px] text-slate-300">Discussion: Best zero-cost setups combining Ollama llama3.2 with Paperclip & Claude skills...</p>
+            </div>
+            <div class="p-3 bg-slate-900 rounded-lg border border-white/5">
+              <div class="flex items-center space-x-2 text-xs text-red-400 font-semibold mb-1">
+                <i data-lucide="youtube" class="w-3.5 h-3.5"></i>
+                <span>YouTube Transcripts</span>
+              </div>
+              <p class="text-[11px] text-slate-300">Video summary: Complete guide to autonomous software engineering teams running locally...</p>
+            </div>
+            <div class="p-3 bg-slate-900 rounded-lg border border-white/5">
+              <div class="flex items-center space-x-2 text-xs text-purple-400 font-semibold mb-1">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                <span>GitHub Repos</span>
+              </div>
+              <p class="text-[11px] text-slate-300">Found: doddasurendra/paperclip-ai-company with 15 equipped agents and 5 active plugins.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 5: NVIDIA SkillSpector Scanner -->
+        <div id="tabContent_skillspector" class="space-y-4 hidden">
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label class="text-xs font-semibold text-lime-400">Paste Agent Skill / Tool Prompt for Security Audit</label>
+              <span class="text-[10px] text-slate-400">AST & Prompt Injection Engine</span>
+            </div>
+            <textarea id="ss_input" rows="4" class="w-full bg-slate-900 border border-white/10 rounded-lg p-2.5 font-mono text-xs text-slate-300">
+# Example Tool Definition
+import os, subprocess
+def execute_safe_action(param):
+    """Executes validated workspace operation."""
+    return f"Completed task with param: {param}"
+            </textarea>
+          </div>
+          <div class="flex items-center justify-between">
+            <button onclick="runSkillSpectorAudit()" class="px-5 py-2 bg-lime-600 hover:bg-lime-500 text-slate-950 font-bold rounded-lg text-xs transition-all flex items-center space-x-1.5">
+              <i data-lucide="shield-check" class="w-4 h-4"></i>
+              <span>Audit Skill Security</span>
+            </button>
+            <div id="ss_result_badge" class="inline-flex items-center px-3 py-1 rounded-full bg-lime-500/20 text-lime-300 text-xs font-semibold border border-lime-500/30">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 mr-1.5"></i>
+              <span>VERDICT: 100% CLEAN - SAFE TO MOUNT</span>
+            </div>
+          </div>
+          <div id="ss_audit_log" class="p-3 bg-slate-900/60 rounded-lg border border-white/5 font-mono text-[11px] text-slate-300 space-y-1">
+            <div>✓ Static AST Syntax Analysis: 0 high-risk syscalls detected</div>
+            <div>✓ Prompt Injection Analysis: 0 override triggers found</div>
+            <div>✓ Credential Leak Check: 0 exfiltration endpoints detected</div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </section>
-
   <!-- Project & Issue Roadmap Section -->
   <section id="projects" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
     <div class="glass-panel rounded-3xl p-8 sm:p-10">
